@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include<locale.h>
+int decisao=0;
+float temperatura;
+int decisao1;
+int main() {
+
+    setlocale(LC_ALL, "Portuguese");
+    do {
+        printf(" \n =======Informe os Sintomas abaixo======= \n");
+        printf("1.febre \n");
+        printf("2.febre alta (Acima de 39°) \n");
+        printf("3.dor no corpo \n");
+        printf("4.inchaco \n");
+        printf("5.Dificuldade Respiratorias \n");
+        printf("6 Nauseas \n");
+        printf("7.Fadiga \n");
+        printf("8.Tontura \n");
+        printf("9.Mau estar \n");
+        printf("10.Sair\n");
+        printf("/////informe uma opcao/////\n");
+        scanf("%d",&decisao);
+        if (decisao != 10) {
+            menu1();
+        }
+    }while (decisao != 10);
+    return 0;
+}
+
+    void menu1(){
+    setlocale(LC_ALL, "Portuguese");
+        switch (decisao) {
+            case 1:
+                printf("informe sua temperatura \n");
+                scanf("%f",&temperatura);
+
+                if (temperatura >=37 && temperatura < 38 ) {
+                    printf("\n=====Informe sintomas que voce esta tendo juntamente a sua febre=====\n");
+                    printf("1.Mal estar geral\n");
+                    printf("2.Fadiga e cansaso\n");
+                    printf("3.Dor de cabeca leve\n");
+                    printf("4.Arrepios\n");
+                    printf("5.Aumento leve de da frequencia cardiaca\n");
+                    printf("6.Suor e Frio\n");
+                    printf("7.Suldorese\n");
+                    printf("8.Perda de apetite\n");
+                    printf("9.Suor Frio\n");
+                    printf("=====Se seu caso nao se encaixa nos sintomas acima digite 0 =====\n");
+                    printf("/////informe uma opcao///// \n");
+                    scanf("%d", &decisao1);
+
+                    if (decisao1 == 1) {
+                        causas();
+                        printf("\n Gripe ou resfriado comum // Dor de garganta, tosse, dor no corpo, coriza \n // Repouso, hidratacao, antitermico como paracetamol ou dipirona\n");
+                        printf("\n Dengue (fase inicial) // Dor atras dos olhos, manchas vermelhas, dor muscular intensa, fraqueza \n // Hidratacao intensa, evitar AAS e ibuprofeno, procurar medico se piorar \n");
+                        printf("\n Covid‑19 // Tosse seca, falta de ar, perda de olfato - paladar, fadiga \n // Isolamento, hidratacao e monitorar respiracao\n");
+                        printf("\n Infeccao de garganta (amigdalite/faringite) // Dor para engolir, vermelhidao na garganta, ínguas no pescoco \n //  Gargarejos com agua morna e sal, analgesico leve, avaliação medica se persistir\n");
+                        printf("\n Exaustao, estresse ou ansiedade // Tremores, calor interno, insonia, palpitacao \n // Descanso, respiracao profunda, evitar cafeina, observar melhora\n");
+                        continua();
+                    }
+
+                    if (decisao1 == 2) {
+                        causas();
+                        printf("\n Gripe ou resfriado comum // Dor de garganta, dor no corpo, tosse, dor de cabeça, coriza \n // Repouso, hidratação, antitérmico (paracetamol/dipirona) \n");
+                        printf("\n Dengue (fase inicial) // Dor muscular intensa, fraqueza, manchas vermelhas, dor atrás dos olhos \n // Hidratação intensa, evitar AAS/ibuprofeno, buscar muito médico se sinais de alarme\n");
+                        printf("\n Covid-19 // Tosse seca, dor de cabeça, falta de ar, perda de olfato/paladar \n // Isolamento, monitorar sintomas, hidratação \n");
+                        printf("\n Mononucleose ou outras viroses // Dor de garganta, inchaço dos gânglios, dor no corpo, sudorese \n // Repouso, hidratação, evitar esforço \n");
+                        printf("\n Doenças bacterianas (amigdalite/pneumonia) // Dor para engolir, tosse, dor torácica, sinais respiratórios \n // Procurar avaliação médica");
+                        printf("\n Doenças autoimunes // Dor nas articulações, vermelhidão, perda de peso, sintomas digestivos \n // Procurar reumatologista, exames específico \n");
+                        printf("\n Estresse, ansiedade ou exaustão // Palpitação, insônia, irritabilidade \n // Descanso, técnicas de relaxamento, evitar cafeína \n");
+                        continua();
+
+                    }
+
+                    if (decisao1 == 3) {
+                        causas();
+                        printf("\n ");
+                    }
+                }
+                break;
+        }
+    }
+
+    void causas () {
+    setlocale(LC_ALL, "Portuguese");
+    printf("\n Causa - doenca provavel // Sintomas adicionais comuns \n //   O que fazer inicialmente");
+}
+
+    void continua() {
+    int stop;
+    printf("\n=====DIGITE 1 PARA CONTINUAR=====\n");
+    scanf("%d",&stop);
+}
