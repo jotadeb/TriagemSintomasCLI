@@ -112,3 +112,4 @@ int main() {
     printf("\n=====DIGITE 1 PARA CONTINUAR=====\n");
     scanf("%d",&stop);
 }
+//fodase
