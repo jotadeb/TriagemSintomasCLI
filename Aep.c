@@ -8,6 +8,8 @@
 #endif
 
 void menu_febre();
+void menu_lesao();
+void menu_dorcorpo();
 void causas();
 void continua();
 void limpar_buffer_entrada();
@@ -24,7 +26,6 @@ int main() {
     int decisao=0;
 
     do {
-        system("cls");
         printf(" \n =======Informe os Sintomas abaixo======= \n");
         printf("1.Febre \n");
         printf("2.Lesões \n");
@@ -38,13 +39,20 @@ int main() {
         printf("10.Sair\n");
         printf("/////informe uma Opção/////\n");
         printf("Opção: ");
-        scanf("%d", &decisao);
+        if (scanf("%d", &decisao) != 1) {
+            decisao = 0;
+        }
+        system("cls");
+
+        limpar_buffer_entrada();
 
         switch (decisao) {
             case 1:
                 menu_febre();
                 break;
             case 2:
+                menu_lesao();
+                break;
             case 3:
             case 4:
             case 5:
@@ -138,7 +146,116 @@ void menu_febre() {
         continua();
     }
 }
-    void causas () {
+
+void menu_lesao() {
+    int tipo_lesao = 0;
+
+    printf("\n===== Tipos de Lesões =====\n");
+    printf("1. Corte ou laceração\n");
+    printf("2. Contusão (hematoma / pancada)\n");
+    printf("3. Entorse (torção)\n");
+    printf("4. Fratura\n");
+    printf("5. Queimadura\n");
+    printf("6. Luxação (deslocamento articular)\n");
+    printf("7. Picada de inseto ou mordida de animal\n");
+    printf("8. Ferida infeccionada\n");
+    printf("9. Lesão por esforço repetitivo (LER)\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    scanf("%d", &tipo_lesao);
+
+    switch (tipo_lesao) {
+        case 1:
+            causas();
+            printf("\nCorte ou laceração // Sangramento, dor local, ferida aberta.\n");
+            printf("// Causa: objetos cortantes, quedas, acidentes domésticos.\n");
+            printf("// Cuidados: limpar com água e sabão, aplicar antisséptico e cobrir com gaze.\n");
+            printf("// Se for profundo ou sangrar muito, procurar pronto atendimento.\n");
+            continua();
+            break;
+
+        case 2:
+            causas();
+            printf("\nContusão (hematoma) // Mancha roxa, dor, inchaço.\n");
+            printf("// Causa: batida, impacto, queda.\n");
+            printf("// Cuidados: aplicar gelo por 15 minutos, repousar o local e evitar esforço.\n");
+            printf("// Procurar médico se houver dor intensa ou dificuldade de movimento.\n");
+            continua();
+            break;
+
+        case 3:
+            causas();
+            printf("\nEntorse // Dor, inchaço e dificuldade para movimentar.\n");
+            printf("// Causa: torção em articulação (ex: tornozelo, punho).\n");
+            printf("// Cuidados: gelo, elevação e repouso.\n");
+            printf("// Se o inchaço for grande ou a dor não melhorar, procurar ortopedista.\n");
+            continua();
+            break;
+
+        case 4:
+            causas();
+            printf("\nFratura // Dor forte, deformidade, inchaço, incapacidade de mover.\n");
+            printf("// Causa: quedas, pancadas ou acidentes.\n");
+            printf("// Cuidados: não movimentar o membro, imobilizar e procurar hospital imediatamente.\n");
+            printf("// Pode haver fratura exposta (osso visível) — emergência médica!\n");
+            continua();
+            break;
+
+        case 5:
+            causas();
+            printf("\nQueimadura // Vermelhidão, bolhas ou carbonização.\n");
+            printf("// Causa: calor, eletricidade, produtos químicos.\n");
+            printf("// Cuidados: resfriar com água corrente (nunca gelo!), não estourar bolhas.\n");
+            printf("// Queimaduras graves ou extensas: procurar atendimento urgente.\n");
+            continua();
+            break;
+
+        case 6:
+            causas();
+            printf("\nLuxação // Articulação fora do lugar, dor intensa e deformidade.\n");
+            printf("// Causa: quedas, impactos, esportes.\n");
+            printf("// Cuidados: não tentar recolocar, imobilizar o local e buscar atendimento.\n");
+            continua();
+            break;
+
+        case 7:
+            causas();
+            printf("\nPicada de inseto ou mordida de animal // Vermelhidão, coceira, dor ou inchaço.\n");
+            printf("// Causa: insetos (mosquito, abelha) ou mordida (cachorro, gato).\n");
+            printf("// Cuidados: lavar o local, aplicar compressa fria.\n");
+            printf("// Procurar médico se houver alergia, infecção ou o animal não estiver vacinado.\n");
+            continua();
+            break;
+
+        case 8:
+            causas();
+            printf("\nFerida infeccionada // Vermelhidão, calor, dor e presença de pus.\n");
+            printf("// Causa: contaminação por bactérias em cortes ou feridas mal cuidadas.\n");
+            printf("// Cuidados: limpeza, uso de antisséptico, e avaliação médica se persistir.\n");
+            continua();
+            break;
+
+        case 9:
+            causas();
+            printf("\nLesão por esforço repetitivo (LER/DORT) // Dor muscular, formigamento, perda de força.\n");
+            printf("// Causa: movimentos repetitivos, má postura, esforço excessivo.\n");
+            printf("// Cuidados: alongamento, pausas, correção ergonômica.\n");
+            printf("// Procurar fisioterapia se a dor persistir.\n");
+            continua();
+            break;
+
+        case 0:
+            printf("\nSem registro de lesão específica.\n");
+            continua();
+            break;
+
+        default:
+            printf("Valor inválido! Tente de 1 a 9 novamente!");
+    }
+}
+
+void causas () {
     printf("\n Causa - doenca provavel // Sintomas adicionais comuns \n // O que fazer inicialmente");
 }
 
@@ -146,4 +263,11 @@ void menu_febre() {
     int stop;
     printf("\n=====DIGITE 1 PARA CONTINUAR=====\n");
     scanf("%d",&stop);
+}
+
+void limpar_buffer_entrada() {
+    int c;
+    // Lê e descarta caracteres do buffer de entrada
+    // até encontrar um '\n' (Enter) ou o fim do arquivo (EOF).
+    while ((c = getchar()) != '\n' && c != EOF);
 }
