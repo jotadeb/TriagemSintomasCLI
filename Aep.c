@@ -10,6 +10,7 @@
 void menu_febre();
 void menu_lesao();
 void menu_dorcorpo();
+void inchaco();
 void causas();
 void continua();
 void limpar_buffer_entrada();
@@ -54,7 +55,9 @@ int main() {
                 menu_lesao();
                 break;
             case 3:
+
             case 4:
+                inchaco();
             case 5:
             case 6:
             case 7:
@@ -151,7 +154,7 @@ void menu_febre() {
 void menu_lesao() {
     int tipo_lesao = 0;
 
-    printf("\n===== Tipos de Lesões =====\n");
+    printf("\n===== Informe o Tipo de Lesão que você tem =====\n");
     printf("1. Corte ou laceração\n");
     printf("2. Contusão (hematoma / pancada)\n");
     printf("3. Entorse (torção)\n");
@@ -164,14 +167,17 @@ void menu_lesao() {
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
-    scanf("%d", &tipo_lesao);
+    if (scanf("%d", &tipo_lesao) != 1) {
+        tipo_lesao = 0;
+        limpar_buffer_entrada();
+    }
 
     switch (tipo_lesao) {
         case 1:
             causas();
             printf("\nCorte ou laceração // Sangramento, dor local, ferida aberta.\n");
-            printf("// Causa: objetos cortantes, quedas, acidentes domésticos.\n");
-            printf("// Cuidados: limpar com água e sabão, aplicar antisséptico e cobrir com gaze.\n");
+            printf("// objetos cortantes, quedas, acidentes domésticos.\n");
+            printf("// limpar com água e sabão, aplicar antisséptico e cobrir com gaze.\n");
             printf("// Se for profundo ou sangrar muito, procurar pronto atendimento.\n");
             continua();
             break;
@@ -179,8 +185,8 @@ void menu_lesao() {
         case 2:
             causas();
             printf("\nContusão (hematoma) // Mancha roxa, dor, inchaço.\n");
-            printf("// Causa: batida, impacto, queda.\n");
-            printf("// Cuidados: aplicar gelo por 15 minutos, repousar o local e evitar esforço.\n");
+            printf("// batida, impacto, queda.\n");
+            printf("// aplicar gelo por 15 minutos, repousar o local e evitar esforço.\n");
             printf("// Procurar médico se houver dor intensa ou dificuldade de movimento.\n");
             continua();
             break;
@@ -188,8 +194,8 @@ void menu_lesao() {
         case 3:
             causas();
             printf("\nEntorse // Dor, inchaço e dificuldade para movimentar.\n");
-            printf("// Causa: torção em articulação (ex: tornozelo, punho).\n");
-            printf("// Cuidados: gelo, elevação e repouso.\n");
+            printf("// torção em articulação (ex: tornozelo, punho).\n");
+            printf("// gelo, elevação e repouso.\n");
             printf("// Se o inchaço for grande ou a dor não melhorar, procurar ortopedista.\n");
             continua();
             break;
@@ -197,8 +203,8 @@ void menu_lesao() {
         case 4:
             causas();
             printf("\nFratura // Dor forte, deformidade, inchaço, incapacidade de mover.\n");
-            printf("// Causa: quedas, pancadas ou acidentes.\n");
-            printf("// Cuidados: não movimentar o membro, imobilizar e procurar hospital imediatamente.\n");
+            printf("//  quedas, pancadas ou acidentes.\n");
+            printf("// não movimentar o membro, imobilizar e procurar hospital imediatamente.\n");
             printf("// Pode haver fratura exposta (osso visível) — emergência médica!\n");
             continua();
             break;
@@ -206,8 +212,8 @@ void menu_lesao() {
         case 5:
             causas();
             printf("\nQueimadura // Vermelhidão, bolhas ou carbonização.\n");
-            printf("// Causa: calor, eletricidade, produtos químicos.\n");
-            printf("// Cuidados: resfriar com água corrente (nunca gelo!), não estourar bolhas.\n");
+            printf("//  calor, eletricidade, produtos químicos.\n");
+            printf("// resfriar com água corrente (nunca gelo!), não estourar bolhas.\n");
             printf("// Queimaduras graves ou extensas: procurar atendimento urgente.\n");
             continua();
             break;
@@ -215,16 +221,16 @@ void menu_lesao() {
         case 6:
             causas();
             printf("\nLuxação // Articulação fora do lugar, dor intensa e deformidade.\n");
-            printf("// Causa: quedas, impactos, esportes.\n");
-            printf("// Cuidados: não tentar recolocar, imobilizar o local e buscar atendimento.\n");
+            printf("// quedas, impactos, esportes.\n");
+            printf("// não tentar recolocar, imobilizar o local e buscar atendimento.\n");
             continua();
             break;
 
         case 7:
             causas();
             printf("\nPicada de inseto ou mordida de animal // Vermelhidão, coceira, dor ou inchaço.\n");
-            printf("// Causa: insetos (mosquito, abelha) ou mordida (cachorro, gato).\n");
-            printf("// Cuidados: lavar o local, aplicar compressa fria.\n");
+            printf("//  insetos (mosquito, abelha) ou mordida (cachorro, gato).\n");
+            printf("//  lavar o local, aplicar compressa fria.\n");
             printf("// Procurar médico se houver alergia, infecção ou o animal não estiver vacinado.\n");
             continua();
             break;
@@ -232,16 +238,16 @@ void menu_lesao() {
         case 8:
             causas();
             printf("\nFerida infeccionada // Vermelhidão, calor, dor e presença de pus.\n");
-            printf("// Causa: contaminação por bactérias em cortes ou feridas mal cuidadas.\n");
-            printf("// Cuidados: limpeza, uso de antisséptico, e avaliação médica se persistir.\n");
+            printf("// contaminação por bactérias em cortes ou feridas mal cuidadas.\n");
+            printf("// limpeza, uso de antisséptico, e avaliação médica se persistir.\n");
             continua();
             break;
 
         case 9:
             causas();
             printf("\nLesão por esforço repetitivo (LER/DORT) // Dor muscular, formigamento, perda de força.\n");
-            printf("// Causa: movimentos repetitivos, má postura, esforço excessivo.\n");
-            printf("// Cuidados: alongamento, pausas, correção ergonômica.\n");
+            printf("// movimentos repetitivos, má postura, esforço excessivo.\n");
+            printf("// alongamento, pausas, correção ergonômica.\n");
             printf("// Procurar fisioterapia se a dor persistir.\n");
             continua();
             break;
@@ -256,11 +262,114 @@ void menu_lesao() {
     }
 }
 
+void inchaco(){
+    int tipo_inchaço = 0;
+
+    printf("\n===== Informe o Local ou Tipo de Inchaço que você tem =====\n");
+    printf("1. Inchaço nas pernas e pés\n");
+    printf("2. Inchaço nas mãos e braços\n");
+    printf("3. Inchaço no rosto e pescoço\n");
+    printf("4. Inchaço abdominal\n");
+    printf("5. Inchaço articular (joelhos, cotovelos, pulsos)\n");
+    printf("6. Inchaço devido a inflamação local\n");
+    printf("7. Inchaço generalizado no corpo\n");
+    printf("8. Inchaço com vermelhidão e calor\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    if (scanf("%d", &tipo_inchaço) != 1) {
+        tipo_inchaço = 0;
+        limpar_buffer_entrada();
+    }
+
+    switch (tipo_inchaço) {
+        case 1:
+            causas();
+            printf("\nInchaço nas pernas e pés // Dor, peso, dificuldade para caminhar, manchas roxas.\n");
+            printf("// Problemas circulatórios, insuficiência renal, inflamação, repouso prolongado.\n");
+            printf("// Elevar as pernas, usar meias de compressão, movimentar-se regularmente.\n");
+            printf("// Procurar médico se persistir ou vier com dor no peito ou falta de ar.\n");
+            continua();
+            break;
+
+        case 2:
+            causas();
+            printf("\nInchaço nas mãos e braços // Dor, formigamento, dificuldade para movimentar, vermelhidão.\n");
+            printf("// Inflamação, retenção de líquidos, problemas circulatórios, síndrome do túnel do carpo.\n");
+            printf("// Elevar os membros, aplicar gelo, fazer alongamentos e descansar.\n");
+            printf("// Procurar médico se o inchaço não diminuir ou vier com adormecimento.\n");
+            continua();
+            break;
+
+        case 3:
+            causas();
+            printf("\nInchaço no rosto e pescoço // Dor, dificuldade para engolir, respiração prejudicada.\n");
+            printf("// Alergia, inflamação das glândulas, infecção, reação a medicamentos.\n");
+            printf("// Não apertar o pescoço, manter em repouso, evitar alérgenos conhecidos.\n");
+            printf("// Procurar atendimento médico se houver dificuldade para respirar ou engolir.\n");
+            continua();
+            break;
+
+        case 4:
+            causas();
+            printf("\nInchaço abdominal // Dor, desconforto, sensação de plenitude, dificuldade para respirar.\n");
+            printf("// Gases, má digestão, retenção de líquidos, problemas no fígado ou rins.\n");
+            printf("// Evitar alimentos gordurosos, beber água regularmente, fazer caminhadas leves.\n");
+            printf("// Procurar médico se o inchaço persistir mais de 3 dias ou for acompanhado de dor intensa.\n");
+            continua();
+            break;
+
+        case 5:
+            causas();
+            printf("\nInchaço articular (joelhos, cotovelos, pulsos) // Dor, limitação de movimento, calor local.\n");
+            printf("// Artrite, gota, inflamação por esforço, infecção, lesão articular.\n");
+            printf("// Aplicar gelo, elevar a articulação, tomar anti-inflamatório recomendado.\n");
+            printf("// Procurar ortopedista se não melhorar ou houver deformidade.\n");
+            continua();
+            break;
+
+        case 6:
+            causas();
+            printf("\nInchaço com inflamação local // Vermelhidão, calor, dor e sensibilidade no local.\n");
+            printf("// Trauma, inflamação, infecção de ferida, reação alérgica.\n");
+            printf("// Aplicar compressa fria, evitar mexer no local, manter higiene.\n");
+            printf("// Procurar médico se piorar, apresentar sinais de infecção ou não melhorar em dias.\n");
+            continua();
+            break;
+
+        case 7:
+            causas();
+            printf("\nInchaço generalizado no corpo // Fadiga, dificuldade para respirar, ganho de peso, dor muscular.\n");
+            printf("// Problemas renais, hepáticos, cardíacos, desnutrição, reação alérgica severa.\n");
+            printf("// Aumentar ingestão de água, reduzir sal, descansar e evitar esforço.\n");
+            printf("// Procurar atendimento médico urgente para investigação.\n");
+            continua();
+            break;
+
+        case 8:
+            causas();
+            printf("\nInchaço com vermelhidão e calor // Dor, coceira, possível pus ou secreção.\n");
+            printf("// Infecção bacteriana, inflamação aguda, alergia, reação a picada de inseto.\n");
+            printf("// Limpeza com água e sabão, aplicar antisséptico, evitar coçar.\n");
+            printf("// Procurar médico se houver febre, aumento rápido do inchaço ou sinais de infecção.\n");
+            continua();
+            break;
+
+        case 0:
+            printf("\nSem registro de inchaço específico.\n");
+            continua();
+            break;
+
+        default:
+            printf("Valor inválido! Tente de 1 a 8 novamente!");
+    }
+}
+
 void causas () {
     printf("\n Causa - doenca provavel // Sintomas adicionais comuns \n // O que fazer inicialmente");
 }
 
-    void continua() {
+void continua() {
     int stop;
     printf("\n=====DIGITE 1 PARA CONTINUAR=====\n");
     scanf("%d",&stop);
