@@ -78,7 +78,8 @@ void menu_febre() {
     scanf("%f",&temperatura);
 
     // Saber oque mais a pessoa está sentindo junto com a febre
-    if (temperatura >=37 && temperatura < 39 ) { //Febre Moderada
+    //Febre Moderada
+    if (temperatura >=37 && temperatura < 39 ) {
         printf("\n=====Informe sintomas que voce esta tendo juntamente a sua febre=====\n");
         printf("1.Mal estar geral\n");
         printf("2.Fadiga e Cansaço\n");
