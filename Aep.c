@@ -10,12 +10,18 @@
 void menu_febre();
 void menu_lesao();
 void menu_dorcorpo();
-void inchaco();
+void menu_inchaco();
+void menu_dificuldades_respiratorias();
+void menu_nausea();
+void menu_pressao();
+void menu_tontura();
+void menu_mau_estar();
 void causas();
 void continua();
 void limpar_buffer_entrada();
+void limpa_tela();
 
-int main() {
+int main()  {
     // Leitura de Caracteres Especiais no Windows
     #ifdef _WIN32
         SetConsoleOutputCP(CP_UTF8);
@@ -24,11 +30,11 @@ int main() {
     #else
         setlocale(LC_ALL, "Portuguese");
     #endif
+
     int decisao=0;
-    
 
     do {
-        system("cls");
+        limpa_tela();
         printf(" \n =======Informe os Sintomas abaixo======= \n");
         printf("1.Febre \n");
         printf("2.Lesões \n");
@@ -36,17 +42,17 @@ int main() {
         printf("4.Inchaço \n");
         printf("5.Dificuldade Respiratórias \n");
         printf("6 Naúseas \n");
-        printf("7.Fadiga \n");
+        printf("7.Pressão \n");
         printf("8.Tontura \n");
         printf("9.Mau estar \n");
         printf("10.Sair\n");
-        printf("/////informe uma Opção/////\n");
+        printf("=====Informe uma Opção=====1\n");
         printf("Opção: ");
         if (scanf("%d", &decisao) != 1) {
-            decisao = 0;
+            decisao = -1;
         }
-        system("cls");
 
+        limpa_tela();
         limpar_buffer_entrada();
 
         switch (decisao) {
@@ -60,18 +66,28 @@ int main() {
                 menu_dorcorpo();
                 break;
             case 4:
-                inchaco();
+                menu_inchaco();
                 break;
             case 5:
+                // dificuldades_respiratorias();
+                break;
             case 6:
+                menu_nausea();
             case 7:
+                menu_pressao();
+                break;
             case 8:
+                menu_tontura();
+                break;
             case 9:
+                menu_mau_estar();
+                break;
             case 10:
                 printf("Encerrando a operação... ");
                 break;
             default:
                 printf("Opção Inválida! Tente um número de 1 a 10\n");
+                continua();
                 break;
         }
     } while (decisao != 10);
@@ -83,7 +99,7 @@ void menu_febre() {
     int decisao_temperatura = 0;
     printf("Informe sua temperatura \n");
     scanf("%f",&temperatura);
-
+    limpa_tela();
     // Saber oque mais a pessoa está sentindo junto com a febre
     if (temperatura >=37 && temperatura < 39 ) { //Febre Moderada
         printf("\n=====Informe sintomas que voce esta tendo juntamente a sua febre=====\n");
@@ -96,7 +112,7 @@ void menu_febre() {
         printf("7.Suldorese\n");
         printf("8.Perda de apetite\n");
         printf("9.Vermelidão no rosto\n");
-        printf("=====Se seu caso nao se encaixa nos sintomas acima digite 0 =====\n");
+        printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
         printf("Opção:");
         scanf("%d", &decisao_temperatura);
 
@@ -185,7 +201,6 @@ void menu_lesao() {
             printf("// Se for profundo ou sangrar muito, procurar pronto atendimento.\n");
             continua();
             break;
-
         case 2:
             causas();
             printf("\nContusão (hematoma) // Mancha roxa, dor, inchaço.\n");
@@ -194,7 +209,6 @@ void menu_lesao() {
             printf("// Procurar médico se houver dor intensa ou dificuldade de movimento.\n");
             continua();
             break;
-
         case 3:
             causas();
             printf("\nEntorse // Dor, inchaço e dificuldade para movimentar.\n");
@@ -203,7 +217,6 @@ void menu_lesao() {
             printf("// Se o inchaço for grande ou a dor não melhorar, procurar ortopedista.\n");
             continua();
             break;
-
         case 4:
             causas();
             printf("\nFratura // Dor forte, deformidade, inchaço, incapacidade de mover.\n");
@@ -284,30 +297,30 @@ void menu_dorcorpo() {
 
     scanf("%d", &tipo_dor);
     switch (tipo_dor) {
-        case 1: 
+        case 1:
             causas();
             printf("\n \n Gripe e resfriado // Febre, dor de cabeça, cansaço \n // Repouso, hidratação, antitérmicos. \n");
             printf("\n // A dor no corpo na gripe e no resfriado é causada principalmente pela resposta exagerada \n // do sistema imunológico ao vírus. \n");
             continua();
-        break;
+            break;
         case 2:
             causas();
             printf("\n \n Dengue // Febre alta, manchas vermelhas, náuseas \n // Buscar atendimento médico urgente. \n");
             printf("\n // A dengue causa dor no corpo principalmente por ser uma doença viral sistêmica que afeta o \n // sistema muscular e articular.");
             continua();
-        break;
+            break;
         case 3:
             causas();
             printf("\n \n Fibromialgia // Fadiga, distúrbios do sono, ansiedade \n // Consulta médica, fisioterapia. \n");
             printf("\n // A fibromialgia é uma doença caracterizada principalmente por dor difusa e persistente no \n // corpo, que pode ser descrita como dor nos músculos, nos ossos ou ao redor das articulações, \n // embora não envolva inflamação articular verdadeira.");
             continua();
-        break;
+            break;
         case 4:
             causas();
             printf("\n \n Artrite reumatoide // Inchaço, rigidez, fadiga \n // Avaliação médica especializada. \n");
             printf("\n // A artrite reumatoide é uma doença inflamatória crônica autoimune que afeta principalmente as \n // articulações, causando dor, inchaço, rigidez e sensibilidade, principalmente nas mãos, punhos, \n // joelhos, tornozelos e pés. ");
             continua();
-        break;
+            break;
         case 5:
             causas();
             printf("\n \n Estresse e ansiedade // Insônia, irritabilidade, palpitações \n // Técnicas relaxamento, psicoterapia. \n");
@@ -325,30 +338,32 @@ void menu_dorcorpo() {
             printf("\n \n Doença viral não específica // Náuseas, tosse, dor de garganta \n // Repouso, hidratação, monitorar sintomas. \n");
             printf("\n // Doença viral não específica se refere a uma infecção causada por vírus que não é atribuída a um vírus \n // específico ou não identificado, apresentando sintomas comuns a diversas viroses.");
             continua();
-        break;
+            break;
         case 8:
             causas();
             printf("\n \n Neuropatia periférica // Formigamento, dormência, fraqueza \n // Avaliação médica, fisioterapia. \n");
             printf("\n // A neuropatia periférica ocorre quando os nervos periféricos que transmitem informações entre o sistema \n // nervoso central e o resto do corpo são danificados. ");
             continua();
-        break;
+            break;
         case 9:
             causas();
             printf("\n \n Má postura // Rigidez cervical, dor entre ombros \n // Correção postural, fisioterapia. \n ");
             printf("\n // A má postura ocorre quando o corpo mantém uma posição inadequada por longos períodos, causando desequilíbrio \n // entre músculos, ossos e articulações, principalmente da coluna vertebral.");
             continua();
-        break;
+            break;
         case 0:
             printf("\nSem registro de lesão específica.\n");
             continua();
             break;
         default:
             printf("Valor inválido! Tente de 1 a 9 novamente!");
+            continua();
+            break;
     }
 }
 
-void inchaco(){
-    int tipo_inchaço = 0;
+void menu_inchaco(){
+    int tipo_inchaco = 0;
 
     printf("\n===== Informe o Local ou Tipo de Inchaço que você tem =====\n");
     printf("1. Inchaço nas pernas e pés\n");
@@ -362,12 +377,12 @@ void inchaco(){
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
-    if (scanf("%d", &tipo_inchaço) != 1) {
-        tipo_inchaço = 0;
+    if (scanf("%d", &tipo_inchaco) != 1) {
+        tipo_inchaco = -1;
         limpar_buffer_entrada();
     }
 
-    switch (tipo_inchaço) {
+    switch (tipo_inchaco) {
         case 1:
             causas();
             printf("\nInchaço nas pernas e pés // Dor, peso, dificuldade para caminhar, manchas roxas.\n");
@@ -376,7 +391,6 @@ void inchaco(){
             printf("// Procurar médico se persistir ou vier com dor no peito ou falta de ar.\n");
             continua();
             break;
-
         case 2:
             causas();
             printf("\nInchaço nas mãos e braços // Dor, formigamento, dificuldade para movimentar, vermelhidão.\n");
@@ -385,7 +399,6 @@ void inchaco(){
             printf("// Procurar médico se o inchaço não diminuir ou vier com adormecimento.\n");
             continua();
             break;
-
         case 3:
             causas();
             printf("\nInchaço no rosto e pescoço // Dor, dificuldade para engolir, respiração prejudicada.\n");
@@ -394,7 +407,6 @@ void inchaco(){
             printf("// Procurar atendimento médico se houver dificuldade para respirar ou engolir.\n");
             continua();
             break;
-
         case 4:
             causas();
             printf("\nInchaço abdominal // Dor, desconforto, sensação de plenitude, dificuldade para respirar.\n");
@@ -403,7 +415,6 @@ void inchaco(){
             printf("// Procurar médico se o inchaço persistir mais de 3 dias ou for acompanhado de dor intensa.\n");
             continua();
             break;
-
         case 5:
             causas();
             printf("\nInchaço articular (joelhos, cotovelos, pulsos) // Dor, limitação de movimento, calor local.\n");
@@ -412,7 +423,6 @@ void inchaco(){
             printf("// Procurar ortopedista se não melhorar ou houver deformidade.\n");
             continua();
             break;
-
         case 6:
             causas();
             printf("\nInchaço com inflamação local // Vermelhidão, calor, dor e sensibilidade no local.\n");
@@ -421,7 +431,6 @@ void inchaco(){
             printf("// Procurar médico se piorar, apresentar sinais de infecção ou não melhorar em dias.\n");
             continua();
             break;
-
         case 7:
             causas();
             printf("\nInchaço generalizado no corpo // Fadiga, dificuldade para respirar, ganho de peso, dor muscular.\n");
@@ -430,7 +439,6 @@ void inchaco(){
             printf("// Procurar atendimento médico urgente para investigação.\n");
             continua();
             break;
-
         case 8:
             causas();
             printf("\nInchaço com vermelhidão e calor // Dor, coceira, possível pus ou secreção.\n");
@@ -439,25 +447,441 @@ void inchaco(){
             printf("// Procurar médico se houver febre, aumento rápido do inchaço ou sinais de infecção.\n");
             continua();
             break;
-
         case 0:
             printf("\nSem registro de inchaço específico.\n");
             continua();
             break;
-
         default:
-            printf("Valor inválido! Tente de 1 a 8 novamente!");
+            printf("Valor inválido! Tente de 1 a 8 novamente!\n");
+            continua();
+            break;
     }
 }
 
-void causas () {
+void menu_dificuldades_respiratorias(){}
+
+void menu_nausea(){}
+
+void menu_pressao() {
+    int pas = 0, pad = 0;
+    int decisao_pressao;
+
+    printf("Informe a sua Pressão Arterial Sistólica\n");
+    scanf("%d", &pas);
+    printf("Informe a sua Pressão Arterial Diastólica\n");
+    scanf("%d", &pad);
+
+    if (pas < 90 || pad < 60) {
+        printf("\nSua pressão está BAIXA - HIPOTENSÃO\n");
+        printf("=====Informe sintomas que voce esta tendo juntamente a sua pressão baixa=====\n");
+        printf("1.Tontura ou desmaio iminente\n");
+        printf("2.Fadiga extrema\n");
+        printf("3.Falta de ar\n");
+        printf("4.Visão escura ou manchas\n");
+        printf("5.Boca e pele seca\n");
+        printf("6.Dor de cabeça ou confusão mental\n");
+        printf("7.Frio e tremores\n");
+        printf("8.Dor no peito\n");
+        printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+        printf("Opção:");
+        scanf("%d", &decisao_pressao);
+
+        switch (decisao_pressao) {
+            case 1:
+                causas();
+                printf("\n Desidratação severa // Boca seca, urina escura, fadiga extrema \n // Beber água ou soro fisiológico lentamente, procurar médico\n");
+                printf("\n Queda rápida de pressão // Levantamento rápido da posição deitada, desmaio iminente \n // Deitar imediatamente, levantar lentamente, evitar esforço\n");
+                printf("\n Hemorragia interna // Palidez, suor frio, confusão, fraqueza progressiva \n // Procurar atendimento médico urgente - AMBULÂNCIA\n");
+                printf("\n Choque séptico ou infecção grave // Febre alta anterior, confusão, pulso rápido, pele fria \n // Atendimento hospitalar imediato\n");
+                continua();
+                break;
+            case 2:
+                causas();
+                printf("\n Anemia // Palidez, dificuldade de concentração, unhas frágeis, falta de ar \n // Aumentar ingestão de ferro, exames laboratoriais urgentes\n");
+                printf("\n Subnutrição ou falta de vitaminas // Perda de peso, fraqueza muscular, queda de cabelo \n // Aumentar aporte nutricional, suplementação orientada por médico\n");
+                printf("\n Depressão ou problemas psicológicos // Desânimo, falta de interesse, isolamento \n // Apoio psicológico, terapia, avaliação médica\n");
+                printf("\n Hipotireoidismo // Ganho de peso, queda de cabelo, pele seca, depressão \n // Exames hormonais, reposição de hormônio tireoidiano\n");
+                continua();
+                break;
+            case 3:
+                causas();
+                printf("\n Anemia moderada a grave // Palidez, taquicardia, fadiga ao fazer esforço \n // Exames de sangue urgentes, suplementação de ferro\n");
+                printf("\n Problema pulmonar ou cardíaco // Falta de ar ao fazer esforço, desconforto no peito \n // Avaliação cardiológica e pulmonar urgente\n");
+                printf("\n Hiperventilação ou pânico // Respiração rápida e superficial, tremores, suor \n // Respirar lentamente, técnicas de calma, descanso\n");
+                continua();
+                break;
+            case 4:
+                causas();
+                printf("\n Queda muito rápida de pressão // Risco de desmaio, confusão, tontura severa \n // Deitar com pernas elevadas, procurar médico urgentemente\n");
+                printf("\n Hipoglicemia // Tremores, suor frio, dificuldade de concentração, visão nublada \n // Consumir açúcar ou carboidrato simples, procurar médico se persistir\n");
+                printf("\n Sangramento interno // Palidez, suor frio, confusão, progressão dos sintomas \n // AMBULÂNCIA imediatamente\n");
+                continua();
+                break;
+            case 5:
+                causas();
+                printf("\n Desidratação severa // Urina escura, boca pegajosa, fadiga extrema \n // Beber água em pequenas quantidades frequentemente, soro fisiológico\n");
+                printf("\n Diarréia ou vômito prolongado // Perda excessiva de líquidos e eletrólitos \n // Reidratação oral com soro, procurar médico se piorar\n");
+                printf("\n Falta de sal (hiponatremia) // Confusão, câimbras, fraqueza \n // Ingerir água com sal, alimentos salgados controladamente\n");
+                continua();
+                break;
+            case 6:
+                causas();
+                printf("\n Hipoglicemia severa // Confusão mental, dificuldade de fala, sudorese \n // Consumir açúcar imediatamente, procurar médico\n");
+                printf("\n Infecção ou sepse // Febre anterior, confusão, desorienta ção, tremores \n // Atendimento hospitalar imediato\n");
+                printf("\n Intoxicação ou overdose // Confusão, pupilas anormais, dificuldade respiratória \n // AMBULÂNCIA - Intoxicações são emergências\n");
+                continua();
+                break;
+            case 7:
+                causas();
+                printf("\n Choque hipovolêmico // Sangramento, palidez, suor frio, confusão \n // AMBULÂNCIA imediatamente, procurar causa do sangramento\n");
+                printf("\n Hipotermia // Tremores progressivos, confusão, letargia \n // Aquecer gradualmente, não aquecer muito rápido, procurar médico\n");
+                printf("\n Infecção generalizada (sepse) // Febre anterior, confusão, pulso rápido, tremores \n // Atendimento hospitalar urgente\n");
+                continua();
+                break;
+            case 8:
+                causas();
+                printf("\n Infarto ou isquemia cardíaca // Dor no peito irradiada, falta de ar, náusea, suor frio \n // AMBULÂNCIA imediatamente - provável emergência coronariana\n");
+                printf("\n Embolia pulmonar // Dor no peito ao respirar, falta de ar súbita, tosse \n // AMBULÂNCIA imediatamente\n");
+                printf("\n Tamponamento cardíaco // Dor no peito, falta de ar, desconforto ao deitar \n // Atendimento de emergência urgente\n");
+                continua();
+                break;
+            case 0:
+                printf("\nApesar da pressão baixa, sem sintomas adicionais reportados.\n");
+                printf("\nOrientações para hipotensão:\n");
+                printf("- Aumente a ingestão de água e sal gradualmente\n");
+                printf("- Evite mudanças de posição rápidas\n");
+                printf("- Descanse adequadamente\n");
+                printf("- Procure um médico para avaliação completa\n");
+                continua();
+                break;
+            default:
+                printf("Valor inválido! Tente de 1 a 8 novamente!");
+        }
+    } else if (pas < 129 && pad < 84){
+        printf("\nSua pressão está normal!\n");
+        continua();
+    } else if (pas < 139 && pad < 89){
+        printf("\nSua pressão está ELEVADA\n");
+        printf("=====Informe sintomas que voce esta tendo juntamente a sua pressão elevada=====\n");
+        printf("1.Dor de cabeça\n");
+        printf("2.Tontura ou vertigem\n");
+        printf("3.Falta de ar\n");
+        printf("4.Visão embaçada\n");
+        printf("5.Ansiedade ou nervosismo\n");
+        printf("6.Rubor facial\n");
+        printf("7.Palpitações\n");
+        printf("8.Dor no peito leve\n");
+        printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+        printf("Opção:");
+        scanf("%d", &decisao_pressao);
+
+        switch (decisao_pressao) {
+            case 1:
+                causas();
+                printf("\n Estresse ou ansiedade // Nervosismo, insônia, irritabilidade, dor muscular \n // Técnicas de relaxamento, reduzir cafeína, exercícios regularmente\n");
+                printf("\n Aumento de sódio na alimentação // Inchaço, retenção de líquidos, aumento de peso \n // Reduzir sal, aumentar consumo de potássio, hidratação adequada\n");
+                printf("\n Falta de atividade física // Sedentarismo, ganho de peso, fraqueza \n // Iniciar exercícios moderados, caminhadas diárias\n");
+                continua();
+                break;
+            case 2:
+                causas();
+                printf("\n Desidratação // Boca seca, fadiga, urina escura \n // Beber mais água, evitar diuréticos\n");
+                printf("\n Movimento rápido ao levantar // Tontura ao trocar de posição bruscamente \n // Levantar lentamente, esperar alguns segundos antes de se mover\n");
+                printf("\n Anemia // Palidez, fadiga, falta de ar, unhas frágeis \n // Aumentar ingestão de ferro, procurar médico para exames\n");
+                continua();
+                break;
+            case 3:
+                causas();
+                printf("\n Excesso de peso ou sedentarismo // Fadiga ao fazer esforço, cansaço rápido \n // Iniciar atividade física gradualmente, perder peso controlado\n");
+                printf("\n Problema respiratório // Dificuldade ao respirar, asma, bronquite \n // Procurar avaliação médica, evitar alérgenos\n");
+                printf("\n Ansiedade ou pânico // Respiração rápida, tremores, suor \n // Técnicas de respiração profunda, descanso\n");
+                continua();
+                break;
+            case 4:
+                causas();
+                printf("\n Ressecamento ocular // Incômodo visual, lacrimejação, vermelhidão \n // Piscar mais frequentemente, usar colírio se necessário\n");
+                printf("\n Problemas oftalmológicos // Dificuldade de foco, dor nos olhos \n // Consulta com oftalmologista\n");
+                continua();
+                break;
+            case 5:
+                causas();
+                printf("\n Transtorno de ansiedade // Insônia, irritabilidade, palpitações, suor frio \n // Técnicas de relaxamento, meditação, procurar psicólogo\n");
+                printf("\n Excesso de cafeína // Tremores, aceleração cardíaca, insônia \n // Reduzir consumo de café, chá e bebidas energéticas\n");
+                printf("\n Estresse crônico // Fadiga, dores musculares, dificuldade de concentração \n // Atividades relaxantes, yoga, exercício físico\n");
+                continua();
+                break;
+            case 6:
+                causas();
+                printf("\n Vasodilatação // Sensação de calor no rosto, vermelhidão \n // Evitar alimentos apimentados, álcool, temperaturas altas\n");
+                printf("\n Alergias ou inflamação de pele // Coceira, descamação, sensibilidade \n // Limpeza suave com água morna, hidratar a pele\n");
+                continua();
+                break;
+            case 7:
+                causas();
+                printf("\n Arritmia ou taquicardia // Coração acelerado, desconforto no peito, tontura \n // Reduzir cafeína, procurar cardiologista\n");
+                printf("\n Ansiedade ou medo // Respiração rápida, suor, tremores \n // Técnicas de calma, descanso, evitar estresse\n");
+                printf("\n Falta de condicionamento físico // Aceleração cardíaca ao fazer esforço \n // Aumentar atividade física gradualmente\n");
+                continua();
+                break;
+            case 8:
+                causas();
+                printf("\n Inflamação ou infecção // Dor torácica, tosse, falta de ar \n // Repouso, anti-inflamatório se recomendado, procurar médico\n");
+                printf("\n Ansiedade ou pânico // Dor no peito, respiração acelerada, suor frio \n // Técnicas de respiração, descanso, apoio psicológico\n");
+                continua();
+                break;
+            case 0:
+                printf("\nSem sintomas reportados. Mantenha acompanhamento médico.\n");
+                continua();
+                break;
+            default:
+                printf("Valor inválido! Tente de 1 a 8 novamente!");
+        }
+    } else if (pas< 159 && pad >= 90) {
+        printf("\nVoce tem HIPERTENSÃO ESTÁGIO 1\n");
+        printf("=====Informe sintomas que voce esta tendo juntamente a sua hipertensão=====\n");
+        printf("1.Dor de cabeça persistente\n");
+        printf("2.Tontura frequente\n");
+        printf("3.Dor no peito\n");
+        printf("4.Falta de ar ao fazer esforço\n");
+        printf("5.Fadiga extrema\n");
+        printf("6.Visão turva ou embaçada\n");
+        printf("7.Zumbido nos ouvidos\n");
+        printf("8.Hemorragia nasal\n");
+        printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+        printf("Opção:");
+        scanf("%d", &decisao_pressao);
+
+        switch (decisao_pressao) {
+            case 1:
+                causas();
+                printf("\n Hipertensão descontrolada // Pressão arterial elevada mantida, risco de acidente vascular \n // Procurar médico urgentemente para avaliar medicação e hábitos\n");
+                printf("\n Problemas renais ou endócrinos // Inchaço, ganho de peso, fadiga \n // Exames laboratoriais, consulta com especialista\n");
+                printf("\n Stress emocional // Tensão muscular, insônia, irritabilidade \n // Técnicas de relaxamento, meditação, terapia\n");
+                continua();
+                break;
+            case 2:
+                causas();
+                printf("\n Desidratação ou falta de nutrientes // Fraqueza, fadiga, boca seca \n // Aumentar ingestão de água e alimentos nutritivos\n");
+                printf("\n Medicação anti-hipertensiva não ajustada // Hipotensão relativa, tontura ao levantar \n // Procurar médico para avaliar dosagem\n");
+                printf("\n Problemas no labirinto ou ouvido interno // Tontura ao virar a cabeça, náusea \n // Consulta com otorrinolaringologista\n");
+                continua();
+                break;
+            case 3:
+                causas();
+                printf("\n Sobrecarga do coração // Falta de ar, desconforto prolongado, fadiga \n // Repouso, procurar atendimento médico urgente\n");
+                printf("\n Espasmo coronariano // Dor no peito ao fazer esforço, alívio com repouso \n // Procurar cardiologista imediatamente\n");
+                printf("\n Ansiedade ou pânico // Dor tipo aperto, respiração acelerada, suor \n // Descanso, técnicas de respiração, apoio psicológico\n");
+                continua();
+                break;
+            case 4:
+                causas();
+                printf("\n Insuficiência coronariana // Dor ou pressão no peito ao fazer esforço, fadiga \n // Procurar avaliação cardiológica urgente\n");
+                printf("\n Condicionamento físico inadequado // Cansaço rápido ao fazer atividade \n // Aumentar atividade física gradualmente, exercícios de cardio\n");
+                printf("\n Problemas respiratórios // Asma, bronquite, deficiência de oxigenação \n // Avaliação pulmonar, tratamento adequado\n");
+                continua();
+                break;
+            case 5:
+                causas();
+                printf("\n Falta de controle medicamentoso // Pressão descontrolada causa exaustão \n // Procurar médico para avaliar medicação\n");
+                printf("\n Anemia ou falta de ferro // Palidez, dificuldade de concentração, unhas frágeis \n // Aumentar ingestão de ferro, exames laboratoriais\n");
+                printf("\n Distúrbio do sono // Insônia, má qualidade de sono, cansaço diurno \n // Higiene do sono, exercício regular, apoio médico\n");
+                continua();
+                break;
+            case 6:
+                causas();
+                printf("\n Retinopatia hipertensiva // Alterações na visão, necessidade de óculos \n // Procurar oftalmologista e cardiologista urgentemente\n");
+                printf("\n Problemas oftalmológicos // Miopia, astigmatismo, presbiopia \n // Consulta com oftalmologista para verificar refração\n");
+                continua();
+                break;
+            case 7:
+                causas();
+                printf("\n Hipertensão acusando efeitos no ouvido // Zumbido constante relacionado a pressão \n // Procurar otorrinolaringologista e cardiologista\n");
+                printf("\n Inflamação de ouvido ou acúmulo de cera // Incômodo auditivo, sensação de plenitude \n // Limpeza adequada do ouvido, consulta com especialista\n");
+                continua();
+                break;
+            case 8:
+                causas();
+                printf("\n Pressão arterial muito elevada // Ruptura de pequenos vasos nasais \n // Procurar médico urgentemente para controlar pressão\n");
+                printf("\n Trauma ou ressecamento nasal // Incômodo, coceira, sangramentos ocasionais \n // Umidificar ambiente, evitar trauma nasal\n");
+                continua();
+                break;
+            case 0:
+                printf("\nSem sintomas reportados. Mantenha acompanhamento médico regular.\n");
+                continua();
+                break;
+            default:
+                printf("Valor inválido! Tente de 1 a 8 novamente!");
+        }
+    } else if (pas >= 179 || pad >= 109) {
+        printf("\n===== CRÍTICO! HIPERTENSÃO ESTÁGIO 2 - PROCURE UM MÉDICO IMEDIATAMENTE!!! =====\n");
+        printf("\n -----Orientações Básicas-----\n");
+        printf("\n Busque atendimento médico imediato sempre que a pressão arterial estiver acima de 140/90 mmHg, \n especialmente se persistir ou vier acompanhada de dor intensa no peito, falta de ar grave, confusão mental, vômitos, \n dificuldade de fala, fraqueza em um lado do corpo, dor de cabeça severa ou alterações visuais. \n");
+        printf("\n Em casa, mantenha-se em repouso e evite esforço físico.\n");
+        printf("\n Deite-se em local fresco e bem ventilado.\n");
+        printf("\n Evite movimentos bruscos e situações estressantes.\n");
+        printf("\n Beba água em pequenas quantidades se conseguir.\n");
+        printf("\n Não se automedique. Aguarde orientação médica.\n");
+        printf("\n=====Procure o Pronto Socorro ou Ambulância Imediatamente=====\n");
+        continua();
+    }
+}
+
+void menu_tontura() {
+    int tipo_tontura = 0;
+
+    printf("\n===== Tipos de Tontura =====\n");
+    printf("1. Tontura ao levantar rápido (postural)\n");
+    printf("2. Tontura com sensação de desmaio iminente\n");
+    printf("3. Tontura giratória (vertigem)\n");
+    printf("4. Tontura associada a enjoo\n");
+    printf("5. Tontura com fraqueza\n");
+    printf("6. Tontura persistente por dias\n");
+    printf("7. Tontura acompanhada de sintomas neurológicos (visão dupla, fala arrastada)\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    if (scanf("%d", &tipo_tontura) != 1) {
+        tipo_tontura = 0;
+        limpar_buffer_entrada();
+    }
+
+    switch (tipo_tontura) {
+        case 1:
+            causas();
+            printf("\nHipotensão postural // Tontura ao levantar da cama ou se abaixar rapidamente\n// Sentar imediatamente, levantar devagar, hidratar\n");
+            continua();
+            break;
+        case 2:
+            causas();
+            printf("\nHipoglicemia // Suor frio, tremores, fome\n// Ingerir alimentos doces se não for diabético\n");
+            printf("\nDesidratação // Sede intensa, boca seca, pouca urina\n// Beber água e repousar\n");
+            continua();
+            break;
+        case 3:
+            causas();
+            printf("\nVertigem (labirintite) // Sensação giratória, dificuldade de andar, náusea\n// Sentar, evitar movimentos bruscos; procurar otorrino se persistir\n");
+            continua();
+            break;
+        case 4:
+            causas();
+            printf("\nInfecção viral ou virose // Febre, mal estar, enjoo\n// Repouso, hidratar, observar evolução\n");
+            printf("\nLabirintite // Zumbido, perda de equilíbrio\n// Marcar consulta, evitar dirigir\n");
+            continua();
+            break;
+        case 5:
+            causas();
+            printf("\nAnemia // Palidez, fraqueza, cansaço\n// Procurar avaliação médica, alimentar-se bem\n");
+            printf("\nProblemas cardíacos // Palpitação, dor no peito\n// Buscar atendimento médico urgente se sintomas graves\n");
+            continua();
+            break;
+        case 6:
+            causas();
+            printf("\nDistúrbios do labirinto ou infecções // Tontura prolongada, náusea, falta de equilíbrio\n// Procurar avaliação médica\n");
+            continua();
+            break;
+        case 7:
+            causas();
+            printf("\nAcidente Vascular Cerebral (AVC) // Dificuldade de falar, perda de força, visão dupla\n// Atendimento médico emergencial imediado\n");
+            continua();
+            break;
+        case 0:
+            printf("\nSem registro de tontura específica.\n");
+            continua();
+            break;
+        default:
+            printf("Valor inválido! Tente de 1 a 7 novamente!");
+    }
+}
+
+void menu_mau_estar() {
+    int tipo_mauestar = 0;
+
+    printf("\n===== Tipos de Mau Estar =====\n");
+    printf("1. Sensação de desmaio/tontura\n");
+    printf("2. Náusea ou vontade de vomitar\n");
+    printf("3. Fraqueza súbita\n");
+    printf("4. Sudorese fria\n");
+    printf("5. Palpitação\n");
+    printf("6. Mal estar associado a dor no peito\n");
+    printf("7. Mal estar sem causa aparente\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    if (scanf("%d", &tipo_mauestar) != 1) {
+        tipo_mauestar = 0;
+        limpar_buffer_entrada();
+    }
+
+    switch (tipo_mauestar) {
+        case 1:
+            causas();
+            printf("\nHipotensão (pressão baixa) // Tontura ao levantar rápido, palidez, fraqueza\n// Sentar, elevar as pernas, hidratar com água\n");
+            printf("\nHipoglicemia // Suor frio, tremor, fome, fraqueza\n// Comer algo doce se a pessoa não for diabética\n");
+            printf("\nDesidratação // Boca seca, pouca urina, cansaço, pele seca\n// Beber água, repousar\n");
+            continua();
+            break;
+        case 2:
+            causas();
+            printf("\nGastrite ou problemas digestivos // Queimação, dor abdominal, náuseas após comer\n// Alimentação leve, evitar frituras, hidratar\n");
+            printf("\nInfecção viral // Febre, mal estar, enjoo\n// Hidratar, repousar, observar quadro\n");
+            printf("\nGravidez (em mulheres) // Náuseas pela manhã, atraso menstrual\n// Procurar orientação médica\n");
+            continua();
+            break;
+        case 3:
+            causas();
+            printf("\nAnemia // Cansaço extremo, palidez, falta de ar\n// Procurar avaliação médica\n");
+            printf("\nInfecção aguda // Febre, prostração, dores\n// Repouso, hidratar, monitorar sintomas\n");
+            printf("\nCrise de ansiedade // Falta de ar, sensação de morte, sudorese\n// Técnicas de respiração, ambiente calmo\n");
+            continua();
+            break;
+        case 4:
+            causas();
+            printf("\nHipoglicemia ou estresse // Suor frio, tremores, irritação\n// Ingerir carboidratos, descansar\n");
+            printf("\nEmergência cardíaca // Suor frio associado a dor torácica\n// Procurar atendimento médico urgente\n");
+            continua();
+            break;
+        case 5:
+            causas();
+            printf("\nArritmia cardíaca // Palpitações, sensação de pulso acelerado ou irregular\n// Sentar e repousar, procurar atendimento se persistir\n");
+            printf("\nAnsiedade // Palpitação associada a agitação, insônia, medo\n// Técnicas de relaxamento, respiração profunda\n");
+            continua();
+            break;
+        case 6:
+            causas();
+            printf("\nInfarto agudo do miocárdio // Mal estar intenso, dor no peito, irradiação para o braço, suor frio\n// Atendimento médico emergencial imediato\n");
+            printf("\nCrise de angina // Dor em pressão ao esforço, melhora ao repousar\n// Parar atividades e buscar atendimento\n");
+            continua();
+            break;
+        case 7:
+            causas();
+            printf("\nCausas diversas (estresse, virose, má alimentação) // Mal estar sem sintomas localizados\n// Repouso, hidratação, observar a evolução dos sintomas\n");
+            continua();
+            break;
+        case 0:
+            printf("\nSem registro de mal estar específico.\n");
+            continua();
+            break;
+        default:
+            printf("Valor inválido! Tente de 1 a 7 novamente!");
+    }
+}
+
+void causas() {
     printf("\n Causa - doenca provavel // Sintomas adicionais comuns \n // O que fazer inicialmente");
 }
 
-    void continua() {
-    int stop;
-    printf("\n=====DIGITE 1 PARA CONTINUAR=====\n");
-    scanf("%d",&stop);
+void continua(){
+    limpar_buffer_entrada();
+    printf("\nPressione Enter para continuar... \n");
+    getchar();
+}
+
+void limpa_tela(){
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 void limpar_buffer_entrada() {
