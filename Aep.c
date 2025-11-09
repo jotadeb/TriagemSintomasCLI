@@ -41,7 +41,7 @@ int main()  {
         printf("3.Dor no corpo \n");
         printf("4.Inchaço \n");
         printf("5.Dificuldade Respiratórias \n");
-        printf("6 Naúseas \n");
+        printf("6.Naúseas \n");
         printf("7.Pressão \n");
         printf("8.Tontura \n");
         printf("9.Mau estar \n");
@@ -69,10 +69,11 @@ int main()  {
                 menu_inchaco();
                 break;
             case 5:
-                // dificuldades_respiratorias();
+                menu_dificuldades_respiratorias();
                 break;
             case 6:
                 menu_nausea();
+                break;
             case 7:
                 menu_pressao();
                 break;
@@ -458,9 +459,162 @@ void menu_inchaco(){
     }
 }
 
-void menu_dificuldades_respiratorias(){}
+void menu_dificuldades_respiratorias(){
+    int tipo_resp = 0;
 
-void menu_nausea(){}
+    printf("\n===== Informe o Tipo de Dificuldade ao respirar =====\n");
+    printf("1. Chiado no peito\n");
+    printf("2. Dispneia progressiva\n");
+    printf("3. Febre alta\n");
+    printf("4. Dor no corpo\n");
+    printf("5. Sensação de sufocamento\n");
+    printf("6. Falta de ar ao deitar\n");
+    printf("7. Fadiga e cansaço\n");
+    printf("8. Falta súbita de ar\n");
+    printf("9. Dificuldade respiratória aguda\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    scanf("%d", &tipo_resp);
+    switch (tipo_resp) {
+        case 1:
+            causas();
+            printf("\n \n Asma // Tosse, aperto no peito, dificuldade respiratória \n // Uso de medicamentos prescritos, evitar gatilhos, procurar socorro em crise. \n");
+            printf("\n // A asma é uma doença pulmonar crônica caracterizada pela inflamação e estreitamento das vias aéreas, o que dificulta \n // a passagem do ar.");
+            continua();
+        break;
+        case 2:
+            causas();
+            printf("\n \n Doença Pulmonar Obstrutiva Crônica (DPOC) \n // Tosse com catarro, fadiga, infecções respiratórias \n // Parar de fumar, tratamento médico especializado. \n");
+            printf("\n // A Doença Pulmonar Obstrutiva Crônica (DPOC) é uma condição pulmonar progressiva e irreversível que causa obstrução das vias aéreas, \n // dificultando a respiração.");
+            continua();
+        break;
+        case 3:
+            causas();
+            printf("\n \n Pneumonia // Tosse produtiva, dor torácica, fadiga \n // Consulta médica urgente, uso de antibióticos se indicado. \n");
+            printf("\n // A pneumonia é uma infecção nos pulmões que provoca inflamação dos alvéolos, os pequenos sacos de ar, dificultando a respiração e causando \n // sintomas variados.");
+            continua();
+        break;
+        case 4:
+            causas();
+            printf("\n \n Gripe // Febre, tosse, coriza, fadiga \n // Repouso, hidratação, antitérmicos. \n");
+            printf("\n // A gripe é uma infecção viral causada pelo vírus Influenza, que afeta o sistema respiratório.");
+            continua();
+        break;
+        case 5:
+            causas();
+            printf("\n \n Ansiedade / Crise de Pânico // Palpitações, sudorese, tremores \n // Técnicas de respiração, apoio psicológico, medicação se necessário. \n");
+            printf("\n // A ansiedade e a crise de pânico são transtornos relacionados, mas com características distintas.");
+            causas();
+        break;
+        case 6:
+            causas();
+            printf("\n \n Insuficiência Cardíaca // Inchaço, fadiga, tosse seca \n // Avaliação cardiológica e tratamento adequado. \n");
+            printf("\n // A insuficiência cardíaca é uma condição em que o coração não consegue bombear sangue de maneira eficiente para atender às necessidades do corpo.");
+            continua();
+        break;
+        case 7:
+            causas();
+            printf("\n \n Anemia // Palidez, tontura, falta de ar ao esforço \n // Identificação e correção da causa da anemia. \n");
+            printf("\n // A anemia é uma condição caracterizada pela redução da quantidade ou qualidade dos glóbulos vermelhos no sangue, comprometendo o transporte de \n // oxigênio para os tecidos do corpo.");
+            continua();
+        break;
+        case 8:
+            causas();
+            printf("\n \n Embolia Pulmonar // Dor no peito, tosse com sangue \n // Atendimento médico urgente. \n");
+            printf("\n // A embolia pulmonar é uma obstrução súbita de uma artéria pulmonar causada por um coágulo de sangue que geralmente se origina em veias profundas \n // das pernas (trombose venosa profunda).");
+            continua();
+        break;
+        case 9:
+            causas();
+            printf("\n \n Obstrução das vias aéreas // Tosse, engasgo, ruídos respiratórios \n // Atendimento emergencial imediato. \n");
+            printf("\n // A obstrução das vias aéreas é a interrupção parcial ou total do fluxo de ar pelas vias respiratórias, que pode ocorrer em qualquer parte do sistema \n // respiratório, desde o nariz até os pulmões.");
+            continua();
+        break;
+    default:
+            printf("Valor inválido! Tente de 1 a 9 novamente!");
+            continua();
+        break;
+    }
+}
+
+void menu_nausea(){
+        int tipo_nausea = 0;
+
+    printf("\n===== Informe o Tipo de Nausea =====\n");
+    printf("1. Náusea e vômito\n");
+    printf("2. Náusea após refeições\n");
+    printf("3. Náusea antes ou durante a dor\n");
+    printf("4. Náusea matinal\n");
+    printf("5. Náusea súbita após refeição\n");
+    printf("6. Náusea relacionada ao emocional\n");
+    printf("7. Náusea com vertigem\n");
+    printf("8. Náusea como efeito colateral\n");
+    printf("9. Náusea persistente\n");
+    printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
+    printf("Opção: ");
+
+    scanf("%d", &tipo_nausea);
+    switch (tipo_nausea) {
+        case 1:
+            causas();
+            printf("\n \n Gastroenterite (infecção intestinal) // Diarreia, dor abdominal, febre \n // Hidratação oral, repouso, evitar alimentos pesados, procurar médico se piorar. \n");
+            printf("\n // A gastroenterite, também conhecida como infecção intestinal, é uma inflamação do estômago e intestinos geralmente causada por vírus, bactérias ou parasitas.");
+            continua();
+        break;
+        case 2:
+            causas();
+            printf("\n \n Refluxo gastroesofágico \n // Azia, queimação, dor no peito \n // Evitar alimentos gordurosos, elevar a cabeceira, uso de antiácidos sob orientação. \n");
+            printf("\n // O refluxo gastroesofágico (DRGE) é uma condição crônica caracterizada pelo retorno do conteúdo ácido do estômago para o esôfago, gerando sintomas \n // incômodos e podendo causar complicações.");
+        break;
+        case 3:
+            causas();
+            printf("\n \n Enxaqueca // Dor de cabeça unilateral, sensibilidade à luz e som \n // Repouso em ambiente escuro, hidratação, analgésicos prescritos. \n");
+            printf("\n // A enxaqueca é uma doença neurológica que se manifesta principalmente por uma dor de cabeça intensa, latejante (pulsátil) e geralmente unilateral, \n // que pode durar de 4 a 72 horas.");
+            continua();
+        break;
+        case 4:
+            causas();
+            printf("\n \n Gravidez // Vômitos, cansaço, aumento da frequência urinária \n // Alimentação fracionada, evitar cheiros fortes, hidratação. \n");
+            printf("\n // Os sintomas mais comuns da gravidez geralmente surgem nas primeiras semanas após a concepção e podem variar entre as mulheres.");
+            continua();
+        break;
+        case 5:
+            causas();
+            printf("\n \n Intoxicação alimentar // Vômitos, diarreia, cólica abdominal \n // Hidratação, repouso, evitar alimentos sólidos por algumas horas. \n");
+            printf("\n // A intoxicação alimentar ocorre após o consumo de alimentos ou bebidas contaminadas por bactérias, vírus, parasitas ou toxinas.");
+            causas();
+        break;
+        case 6:
+            causas();
+            printf("\n \n Ansiedade / Estresse // Palpitações, sudorese, tremores, desconforto abdominal \n // Técnicas de relaxamento, apoio psicológico. \n");
+            printf("\n // Ansiedade e estresse são respostas normais do corpo a situações desafiadoras, mas quando excessivos podem causar sintomas físicos, emocionais e \n // comportamentais que prejudicam a qualidade de vida.");
+            continua();
+        break;
+        case 7:
+            causas();
+            printf("\n \n Distúrbio vestibular (labirintite) // Tontura, desequilíbrio, zumbido \n // Repouso, evitar movimentos bruscos, procurar avaliação otorrinolaringológica. \n");
+            printf("\n // O distúrbio vestibular, conhecido popularmente como labirintite, é uma condição que afeta o sistema vestibular do ouvido interno, responsável pelo equilíbrio e orientação espacial.");
+            continua();
+        break;
+        case 8:
+            causas();
+            printf("\n \n Uso de medicamentos // Fadiga, dor abdominal, alteração no apetite \n // Consultar médico para ajuste ou troca de medicação. \n");
+            printf("\n // O uso de certos medicamentos pode causar dificuldade respiratória como efeito colateral. Isso pode ocorrer por diferentes mecanismos, incluindo reações alérgicas, \n // inflamação pulmonar, fibrose, broncoespasmo ou toxicidade direta nos pulmões.");
+            continua();
+        break;
+        case 9:
+            causas();
+            printf("\n \n Doenças do fígado ou vesícula // Dor abdominal no quadrante superior direito, icterícia \n // Avaliação médica urgente, exames complementares. \n");
+            printf("\n // Doenças do fígado e da vesícula podem ser causadas por diversos fatores, incluindo infecções, inflamações, problemas metabólicos, cálculos biliares e efeitos de medicamentos.");
+            continua();
+        break;
+    default:
+            printf("Valor inválido! Tente de 1 a 9 novamente!");
+            continua();
+        break;
+    }
+}
 
 void menu_pressao() {
     int pas = 0, pad = 0;
