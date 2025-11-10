@@ -2,7 +2,7 @@
 Um programa de linha de comando para triagem automatizada de sintomas, desenvolvido para simular o funcionamento de um chatbot de saúde comunitária. Ele auxilia o usuário na identificação de possíveis causas e orientações iniciais baseadas nos sintomas informados. O fluxo é totalmente interativo e utiliza algoritmos de decisão em linguagem C para orientar o usuário pelas opções disponíveis.
 
 ## Tecnologias Utilizadas
-- C99 padrão
+- Linguagem: C
 - Bibliotecas: stdio.h, stdlib.h, locale.h (para acentuação e caracteres especiais), windows.h (apenas em sistemas Windows)
 - Compatível com Windows, Linux e macOS
 
@@ -53,7 +53,7 @@ Informe os Sintomas abaixo:
 
 ## Estrutura e Organização do Código
 
-O projeto é composto por um único arquivo principal `Aep.c` organizado em funções que representam os possíveis sintomas a serem triados. A função `main()` implementa o fluxo principal do menu, controlando o ciclo de execução, leitura das opções, e o direcionamento das chamadas para cada função específica de sintoma, conforme escolha do usuário.[1]
+O projeto é composto por um único arquivo principal `Aep.c` organizado em funções que representam os possíveis sintomas a serem triados. A função `main()` implementa o fluxo principal do menu, controlando o ciclo de execução, leitura das opções, e o direcionamento das chamadas para cada função específica de sintoma, conforme escolha do usuário.
 
 **Principais funções:**
 - `main()`: inicia o menu, configura o sistema de leitura de caracteres especiais e gerencia o fluxo das opções.
@@ -97,3 +97,8 @@ A cada etapa, as funções especialistas exibem perguntas adicionais conforme a 
 - O sistema foi desenvolvido para fins didáticos e simulação de lógica clínica em linha de comando.
 - Não substitui avaliação médica.
 - Modularidade permite expansão adicionando novos sintomas/fluxos como funções separadas.
+
+### Principais Contribuidores
+- **[João Daniel](https://github.com/jotadeb)**
+- **[Ricardo Iuji](https://github.com/di0x1)**
+- **[Gustavo Henrique](https://github.com/BoyThaCookies)**
