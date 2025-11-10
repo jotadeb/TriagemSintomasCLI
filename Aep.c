@@ -4,7 +4,7 @@
 
 // Permitir a leitura de caracteres especiais em diferentes Sistemas Operacionais
 #ifdef _WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
 void menu_febre();
@@ -22,13 +22,23 @@ void limpar_buffer_entrada();
 void limpa_tela();
 
 int main()  {
-
+    // Leitura de Caracteres Especiais no Windows
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+        setlocale(LC_ALL, ".UF8");
+    // Leitura de Caracteres especiais em Linux/MacOS
+    #else
         setlocale(LC_ALL, "Portuguese");
+    #endif
 
+    // Variável para armazenar a opção do menu
     int decisao=0;
 
+    // Loop principal do programa
     do {
         limpa_tela();
+
+        // Exibe menu de sintomas principais
         printf(" \n =======Informe os Sintomas abaixo======= \n");
         printf("1.Febre \n");
         printf("2.Lesões \n");
@@ -42,6 +52,8 @@ int main()  {
         printf("10.Sair\n");
         printf("=====Informe uma Opção=====1\n");
         printf("Opção: ");
+
+        // Lê a opção do usuário
         if (scanf("%d", &decisao) != 1) {
             decisao = -1;
         }
@@ -49,6 +61,7 @@ int main()  {
         limpa_tela();
         limpar_buffer_entrada();
 
+        // Chama a função correspondente ao sintoma selecionado
         switch (decisao) {
             case 1:
                 menu_febre();
@@ -90,12 +103,16 @@ int main()  {
 }
 
 void menu_febre() {
+
+    // Variáveis para armazenar temperatura e decisão do usuário
     float temperatura;
     int decisao_temperatura = 0;
+
     printf("Informe sua temperatura \n");
     scanf("%f",&temperatura);
-    // Saber oque mais a pessoa está sentindo junto com a febre
-    if (temperatura >=37 && temperatura < 39 ) { //Febre Moderada
+
+    // Verifica se a febre é moderada
+    if (temperatura >=37 && temperatura < 39 ) {
         printf("\n=====Informe sintomas que voce esta tendo juntamente a sua febre=====\n");
         printf("1.Mal estar geral\n");
         printf("2.Fadiga e Cansaço\n");
@@ -110,6 +127,7 @@ void menu_febre() {
         printf("Opção:");
         scanf("%d", &decisao_temperatura);
 
+        // Fornece informações sobre possíveis causas baseado na seleção
         switch (decisao_temperatura) {
             case 1:
                 causas();
@@ -180,7 +198,7 @@ void menu_febre() {
        			break;
        			
        		case 9:
-        		ausas();
+        		causas();
         		printf("\n Emergências clínicas // Dor no peito, dificuldade respiratória grave \n // Atendimento médico imediato \n");
         		continua();
         		break;
@@ -215,7 +233,9 @@ void menu_febre() {
         continua();
 }
 }
+
 void menu_lesao() {
+    // Variável para armazenar tipo de lesão
     int tipo_lesao = 0;
 
     printf("\n===== Tipos de Lesões =====\n");
@@ -233,6 +253,7 @@ void menu_lesao() {
 
     scanf("%d", &tipo_lesao);
 
+    // Fornece informações sobre cuidados conforme tipo de lesão
     switch (tipo_lesao) {
         case 1:
             causas();
@@ -320,6 +341,7 @@ void menu_lesao() {
 }
 
 void menu_dorcorpo() {
+    // Variável para armazenar tipo de dor
     int tipo_dor = 0;
 
     printf("\n===== Informe o Tipo de Dor no Corpo =====\n");
@@ -335,6 +357,7 @@ void menu_dorcorpo() {
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
+    // Fornece informações sobre possíveis causas conforme tipo de dor
     scanf("%d", &tipo_dor);
     switch (tipo_dor) {
         case 1:
@@ -403,6 +426,7 @@ void menu_dorcorpo() {
 }
 
 void menu_inchaco(){
+    // Variável para armazenar tipo de inchaço
     int tipo_inchaco = 0;
 
     printf("\n===== Informe o Local ou Tipo de Inchaço que você tem =====\n");
@@ -417,6 +441,7 @@ void menu_inchaco(){
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
+    // Fornece informações sobre possíveis causas conforme tipo de inchaço
     if (scanf("%d", &tipo_inchaco) != 1) {
         tipo_inchaco = -1;
         limpar_buffer_entrada();
@@ -499,6 +524,8 @@ void menu_inchaco(){
 }
 
 void menu_dificuldades_respiratorias(){
+
+    // Variável para armazenar tipo de dificuldade respiratória
     int tipo_resp = 0;
 
     printf("\n===== Informe o Tipo de Dificuldade ao respirar =====\n");
@@ -514,6 +541,7 @@ void menu_dificuldades_respiratorias(){
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
+    // Fornece informações sobre possíveis causas conforme tipo de dificuldade respiratória
     scanf("%d", &tipo_resp);
     switch (tipo_resp) {
         case 1:
@@ -521,64 +549,65 @@ void menu_dificuldades_respiratorias(){
             printf("\n \n Asma // Tosse, aperto no peito, dificuldade respiratória \n // Uso de medicamentos prescritos, evitar gatilhos, procurar socorro em crise. \n");
             printf("\n // A asma é uma doença pulmonar crônica caracterizada pela inflamação e estreitamento das vias aéreas, o que dificulta \n // a passagem do ar.");
             continua();
-        break;
+            break;
         case 2:
             causas();
             printf("\n \n Doença Pulmonar Obstrutiva Crônica (DPOC) \n // Tosse com catarro, fadiga, infecções respiratórias \n // Parar de fumar, tratamento médico especializado. \n");
             printf("\n // A Doença Pulmonar Obstrutiva Crônica (DPOC) é uma condição pulmonar progressiva e irreversível que causa obstrução das vias aéreas, \n // dificultando a respiração.");
             continua();
-        break;
+            break;
         case 3:
             causas();
             printf("\n \n Pneumonia // Tosse produtiva, dor torácica, fadiga \n // Consulta médica urgente, uso de antibióticos se indicado. \n");
             printf("\n // A pneumonia é uma infecção nos pulmões que provoca inflamação dos alvéolos, os pequenos sacos de ar, dificultando a respiração e causando \n // sintomas variados.");
             continua();
-        break;
+            break;
         case 4:
             causas();
             printf("\n \n Gripe // Febre, tosse, coriza, fadiga \n // Repouso, hidratação, antitérmicos. \n");
             printf("\n // A gripe é uma infecção viral causada pelo vírus Influenza, que afeta o sistema respiratório.");
             continua();
-        break;
+            break;
         case 5:
             causas();
             printf("\n \n Ansiedade / Crise de Pânico // Palpitações, sudorese, tremores \n // Técnicas de respiração, apoio psicológico, medicação se necessário. \n");
             printf("\n // A ansiedade e a crise de pânico são transtornos relacionados, mas com características distintas.");
             causas();
-        break;
+            break;
         case 6:
             causas();
             printf("\n \n Insuficiência Cardíaca // Inchaço, fadiga, tosse seca \n // Avaliação cardiológica e tratamento adequado. \n");
             printf("\n // A insuficiência cardíaca é uma condição em que o coração não consegue bombear sangue de maneira eficiente para atender às necessidades do corpo.");
             continua();
-        break;
+            break;
         case 7:
             causas();
             printf("\n \n Anemia // Palidez, tontura, falta de ar ao esforço \n // Identificação e correção da causa da anemia. \n");
             printf("\n // A anemia é uma condição caracterizada pela redução da quantidade ou qualidade dos glóbulos vermelhos no sangue, comprometendo o transporte de \n // oxigênio para os tecidos do corpo.");
             continua();
-        break;
+            break;
         case 8:
             causas();
             printf("\n \n Embolia Pulmonar // Dor no peito, tosse com sangue \n // Atendimento médico urgente. \n");
             printf("\n // A embolia pulmonar é uma obstrução súbita de uma artéria pulmonar causada por um coágulo de sangue que geralmente se origina em veias profundas \n // das pernas (trombose venosa profunda).");
             continua();
-        break;
+            break;
         case 9:
             causas();
             printf("\n \n Obstrução das vias aéreas // Tosse, engasgo, ruídos respiratórios \n // Atendimento emergencial imediato. \n");
             printf("\n // A obstrução das vias aéreas é a interrupção parcial ou total do fluxo de ar pelas vias respiratórias, que pode ocorrer em qualquer parte do sistema \n // respiratório, desde o nariz até os pulmões.");
             continua();
-        break;
+            break;
     default:
             printf("Valor inválido! Tente de 1 a 9 novamente!");
             continua();
-        break;
+            break;
     }
 }
 
 void menu_nausea(){
-        int tipo_nausea = 0;
+    // Variável para armazenar tipo de náusea
+    int tipo_nausea = 0;
 
     printf("\n===== Informe o Tipo de Nausea =====\n");
     printf("1. Náusea e vômito\n");
@@ -592,8 +621,9 @@ void menu_nausea(){
     printf("9. Náusea persistente\n");
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
-
     scanf("%d", &tipo_nausea);
+
+    // Fornece informações sobre possíveis causas conforme tipo de náusea
     switch (tipo_nausea) {
         case 1:
             causas();
@@ -656,6 +686,7 @@ void menu_nausea(){
 }
 
 void menu_pressao() {
+    // Variável para armazenar tipos de pressão e a decisão dos sintomas
     int pas = 0, pad = 0;
     int decisao_pressao;
 
@@ -679,6 +710,7 @@ void menu_pressao() {
         printf("Opção:");
         scanf("%d", &decisao_pressao);
 
+        // Fornece informações possíveis causas de pressão baixa ou alta
         switch (decisao_pressao) {
             case 1:
                 causas();
@@ -920,6 +952,8 @@ void menu_pressao() {
 }
 
 void menu_tontura() {
+
+    // Variável para armazenar tipo de tontura
     int tipo_tontura = 0;
 
     printf("\n===== Tipos de Tontura =====\n");
@@ -933,6 +967,7 @@ void menu_tontura() {
     printf("===== Se não se encaixa em nenhum, digite 0 =====\n");
     printf("Opção: ");
 
+    // Fornece informações sobre possíveis causas conforme tipo de tontura
     if (scanf("%d", &tipo_tontura) != 1) {
         tipo_tontura = 0;
         limpar_buffer_entrada();
@@ -987,6 +1022,7 @@ void menu_tontura() {
 }
 
 void menu_mau_estar() {
+    // Variável para armazenar tipo de mau estar
     int tipo_mauestar = 0;
 
     printf("\n===== Tipos de Mau Estar =====\n");
@@ -1005,6 +1041,7 @@ void menu_mau_estar() {
         limpar_buffer_entrada();
     }
 
+    // Fornece informações sobre possíveis causas conforme tipo de mau estar
     switch (tipo_mauestar) {
         case 1:
             causas();
@@ -1059,16 +1096,19 @@ void menu_mau_estar() {
     }
 }
 
+// Exibe o cabeçalho de informações sobre causas
 void causas() {
     printf("\n Causa - doenca provavel // Sintomas adicionais comuns \n // O que fazer inicialmente");
 }
 
+// Aguarda o usuário pressionar Enter para continuar
 void continua(){
     limpar_buffer_entrada();
     printf("\nPressione Enter para continuar... \n");
     getchar();
 }
 
+// Limpa a tela do console
 void limpa_tela(){
 #ifdef _WIN32
     system("cls");
@@ -1077,8 +1117,10 @@ void limpa_tela(){
 #endif
 }
 
+// Limpa o buffer de entrada do programa
 void limpar_buffer_entrada() {
     int c;
+
     // Lê e descarta caracteres do buffer de entrada
     // até encontrar um '\n' (Enter) ou o fim do arquivo (EOF).
     while ((c = getchar()) != '\n' && c != EOF);
