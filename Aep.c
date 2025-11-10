@@ -122,7 +122,7 @@ void menu_febre() {
                 causas();
                 printf("\n Gripe ou resfriado comum // Dor de garganta, tosse, dor no corpo, coriza \n // Repouso, hidratacao, antitermico como paracetamol ou dipirona\n");
                 printf("\n Dengue (fase inicial) // Dor atras dos olhos, manchas vermelhas, dor muscular intensa, fraqueza \n // Hidratacao intensa, evitar AAS e ibuprofeno, procurar medico se piorar \n");
-                printf("\n Covid‑19 // Tosse seca, falta de ar, perda de olfato - paladar, fadiga \n // Isolamento, hidratacao e monitorar respiracao\n");
+                printf("\n Covid-19 // Tosse seca, falta de ar, perda de olfato - paladar, fadiga \n // Isolamento, hidratacao e monitorar respiracao\n");
                 printf("\n Infeccao de garganta (amigdalite/faringite) // Dor para engolir, vermelhidao na garganta, ínguas no pescoco \n //  Gargarejos com agua morna e sal, analgesico leve, avaliação medica se persistir\n");
                 printf("\n Exaustao, estresse ou ansiedade // Tremor    es, calor interno, insonia, palpitacao \n // Descanso, respiracao profunda, evitar cafeina, observar melhora\n");
                 continua();
@@ -172,9 +172,8 @@ void menu_febre() {
         printf("\n Não se automedique com antibióticos ou corticoides.");
         printf("\n=====Procure o Médico imediatamente=====\n");
         continua();
-    }
     
-    }else if(temperatura <= 35){
+    }else if(temperatura < 35){
     
         printf("\n===== TEMPERATURA MUITO BAIXA (Hipotermia) =====\n");
         printf("Procure atendimento médico de urgência imediatamente!\n");
@@ -187,6 +186,7 @@ void menu_febre() {
         printf("\n ========== TEMPERATURA NORMAL =========== \n");
         printf("\n Continue se cuidando \n");
         continua();
+}
 }
 void menu_lesao() {
     int tipo_lesao = 0;
