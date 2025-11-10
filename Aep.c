@@ -173,8 +173,21 @@ void menu_febre() {
         printf("\n=====Procure o Médico imediatamente=====\n");
         continua();
     }
+    
+    }else if(temperatura <= 35){
+    
+        printf("\n===== TEMPERATURA MUITO BAIXA (Hipotermia) =====\n");
+        printf("Procure atendimento médico de urgência imediatamente!\n");
+        printf("Mantenha-se aquecido, evite movimentar-se excessivamente\n");
+        printf("Se estiver em casa, vá para um local quente e cubra-se com cobertores.\n");
+        printf("Não tente aquecer rapidamente com água quente ou fontes de calor direto.\n");
+        continua();
+    
+    }else{
+        printf("\n ========== TEMPERATURA NORMAL =========== \n");
+        printf("\n Continue se cuidando \n");
+        continua();
 }
-
 void menu_lesao() {
     int tipo_lesao = 0;
 
