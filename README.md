@@ -72,7 +72,7 @@ A cada etapa, as funções especialistas exibem perguntas adicionais conforme a 
 
 - O código prioriza clareza e segmentação funcional, facilitando a manutenção futura.
 - Utiliza comentários resumidos para detalhar operações principais e destacar áreas críticas, favorecendo o entendimento de estudantes e equipes acadêmicas.
-- A adaptação regional é feita via configuração de locale e diferenciação automática para caracteres especiais, assegurando funcionalidade multiplataforma.[1]
+- A adaptação regional é feita via configuração de locale e diferenciação automática para caracteres especiais, assegurando funcionalidade multiplataforma.
 
 ## Estrutura Resumida do Arquivo
 
@@ -97,5 +97,3 @@ A cada etapa, as funções especialistas exibem perguntas adicionais conforme a 
 - O sistema foi desenvolvido para fins didáticos e simulação de lógica clínica em linha de comando.
 - Não substitui avaliação médica.
 - Modularidade permite expansão adicionando novos sintomas/fluxos como funções separadas.
-
-***
