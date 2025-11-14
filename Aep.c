@@ -168,41 +168,39 @@ void menu_febre() {
                 printf("\n Infecções graves (sepse) // Febre alta, tremores, confusão mental, queda de pressão, fraqueza extrema \n // Atendimento hospitalar imediato \n");
                 printf("\n Doenças endócrinas (hipertireoidismo) // Suor excessivo, perda de peso, irritabilidade, mãos trêmulas \n // Consulta médica e exames hormonais \n");
                 continua();
-                break;
-                
+                break;              
              case 5:
         		causas();
         		printf("\n Doenças renais // Inchaço, fadiga, alterações urinárias \n // Busca por avaliação médica e tratamento específico\n");
         		printf("\n Problemas hepáticos // Icterícia, dor abdominal, cansaço \n // Atendimento médico e exames complementares \n");
         		continua();
-        		break;
-        		
+        		break;        		
         	case 6:
         		causas();
         		printf("\n Distúrbios gastrointestinais // Náusea, vômitos, dor abdominal \n // Hidratação, dieta leve, avaliação médica se necessário \n");
         		printf("\n Intoxicação alimentar // Vômitos, diarreia, cólicas \n // Repouso, hidratação adequada \n");
         		continua();
-        		break;
-        		
+        		break;        		
         	case 7:
         		causas();
        			printf("\n Reação alérgica // Erupções cutâneas, coceira, inchaço \n // Antialérgicos, evitar alérgenos, procurar atendimento se agravamento \n");
         		printf("\n Infecção generalizada // Febre alta, mal-estar intenso \n // Atendimento urgente \n");
         		continua();
-        		break;
-        		
+        		break;        		
         	case 8:
         		causas();
         		printf("\n Condições neurológicas // Cefaleia intensa, confusão, convulsões \n // Procure ajuda médica imediata \n");
         		continua();
        			break;
-       			
        		case 9:
         		causas();
         		printf("\n Emergências clínicas // Dor no peito, dificuldade respiratória grave \n // Atendimento médico imediato \n");
         		continua();
         		break;
-        		
+            case 0:
+                printf("\nSem registro de sintoma específico.\n");
+                printf("\nMantenha acompanhamento médico.\n");
+                continua();
             default:
                 printf("Valor inválido! Tente de 1 a 10 novamente!");
         }
@@ -217,21 +215,18 @@ void menu_febre() {
         printf("\n Não se automedique com antibióticos ou corticoides.");
         printf("\n=====Procure o Médico imediatamente=====\n");
         continua();
-    
-    }else if(temperatura < 35){
-    
+    } else if (temperatura < 35){
         printf("\n===== TEMPERATURA MUITO BAIXA (Hipotermia) =====\n");
         printf("Procure atendimento médico de urgência imediatamente!\n");
         printf("Mantenha-se aquecido, evite movimentar-se excessivamente\n");
         printf("Se estiver em casa, vá para um local quente e cubra-se com cobertores.\n");
         printf("Não tente aquecer rapidamente com água quente ou fontes de calor direto.\n");
         continua();
-    
-    }else{
+    } else {
         printf("\n ========== TEMPERATURA NORMAL =========== \n");
         printf("\n Continue se cuidando \n");
         continua();
-}
+    }
 }
 
 void menu_lesao() {
@@ -287,7 +282,6 @@ void menu_lesao() {
             printf("// Pode haver fratura exposta (osso visível) — emergência médica!\n");
             continua();
             break;
-
         case 5:
             causas();
             printf("\nQueimadura // Vermelhidão, bolhas ou carbonização.\n");
@@ -296,14 +290,12 @@ void menu_lesao() {
             printf("// Queimaduras graves ou extensas: procurar atendimento urgente.\n");
             continua();
             break;
-
         case 6:
             causas();
             printf("\nLuxação // Articulação fora do lugar, dor intensa e deformidade.\n");
             printf("// Causa: quedas, impactos, esportes.\n");
             printf("// Cuidados: não tentar recolocar, imobilizar o local e buscar atendimento.\n");
             continua();
-            
         case 7:
             causas();
             printf("\nPicada de inseto ou mordida de animal // Vermelhidão, coceira, dor ou inchaço.\n");
@@ -312,7 +304,6 @@ void menu_lesao() {
             printf("// Procurar médico se houver alergia, infecção ou o animal não estiver vacinado.\n");
             continua();
             break;
-
         case 8:
             causas();
             printf("\nFerida infeccionada // Vermelhidão, calor, dor e presença de pus.\n");
@@ -320,7 +311,6 @@ void menu_lesao() {
             printf("// Cuidados: limpeza, uso de antisséptico, e avaliação médica se persistir.\n");
             continua();
             break;
-
         case 9:
             causas();
             printf("\nLesão por esforço repetitivo (LER/DORT) // Dor muscular, formigamento, perda de força.\n");
@@ -329,12 +319,10 @@ void menu_lesao() {
             printf("// Procurar fisioterapia se a dor persistir.\n");
             continua();
             break;
-
         case 0:
             printf("\nSem registro de lesão específica.\n");
             continua();
             break;
-
         default:
             printf("Valor inválido! Tente de 1 a 9 novamente!");
     }
@@ -598,6 +586,9 @@ void menu_dificuldades_respiratorias(){
             printf("\n // A obstrução das vias aéreas é a interrupção parcial ou total do fluxo de ar pelas vias respiratórias, que pode ocorrer em qualquer parte do sistema \n // respiratório, desde o nariz até os pulmões.");
             continua();
             break;
+        case 0:
+            printf("\nSem registro de dificuldade respitatória específico.\n");
+            continua();
     default:
             printf("Valor inválido! Tente de 1 a 9 novamente!");
             continua();
@@ -630,54 +621,57 @@ void menu_nausea(){
             printf("\n \n Gastroenterite (infecção intestinal) // Diarreia, dor abdominal, febre \n // Hidratação oral, repouso, evitar alimentos pesados, procurar médico se piorar. \n");
             printf("\n // A gastroenterite, também conhecida como infecção intestinal, é uma inflamação do estômago e intestinos geralmente causada por vírus, bactérias ou parasitas.");
             continua();
-        break;
+            break;
         case 2:
             causas();
             printf("\n \n Refluxo gastroesofágico \n // Azia, queimação, dor no peito \n // Evitar alimentos gordurosos, elevar a cabeceira, uso de antiácidos sob orientação. \n");
             printf("\n // O refluxo gastroesofágico (DRGE) é uma condição crônica caracterizada pelo retorno do conteúdo ácido do estômago para o esôfago, gerando sintomas \n // incômodos e podendo causar complicações.");
-        break;
+            break;
         case 3:
             causas();
             printf("\n \n Enxaqueca // Dor de cabeça unilateral, sensibilidade à luz e som \n // Repouso em ambiente escuro, hidratação, analgésicos prescritos. \n");
             printf("\n // A enxaqueca é uma doença neurológica que se manifesta principalmente por uma dor de cabeça intensa, latejante (pulsátil) e geralmente unilateral, \n // que pode durar de 4 a 72 horas.");
             continua();
-        break;
+            break;
         case 4:
             causas();
             printf("\n \n Gravidez // Vômitos, cansaço, aumento da frequência urinária \n // Alimentação fracionada, evitar cheiros fortes, hidratação. \n");
             printf("\n // Os sintomas mais comuns da gravidez geralmente surgem nas primeiras semanas após a concepção e podem variar entre as mulheres.");
             continua();
-        break;
+            break;
         case 5:
             causas();
             printf("\n \n Intoxicação alimentar // Vômitos, diarreia, cólica abdominal \n // Hidratação, repouso, evitar alimentos sólidos por algumas horas. \n");
             printf("\n // A intoxicação alimentar ocorre após o consumo de alimentos ou bebidas contaminadas por bactérias, vírus, parasitas ou toxinas.");
             causas();
-        break;
+            break;
         case 6:
             causas();
             printf("\n \n Ansiedade / Estresse // Palpitações, sudorese, tremores, desconforto abdominal \n // Técnicas de relaxamento, apoio psicológico. \n");
             printf("\n // Ansiedade e estresse são respostas normais do corpo a situações desafiadoras, mas quando excessivos podem causar sintomas físicos, emocionais e \n // comportamentais que prejudicam a qualidade de vida.");
             continua();
-        break;
+            break;
         case 7:
             causas();
             printf("\n \n Distúrbio vestibular (labirintite) // Tontura, desequilíbrio, zumbido \n // Repouso, evitar movimentos bruscos, procurar avaliação otorrinolaringológica. \n");
             printf("\n // O distúrbio vestibular, conhecido popularmente como labirintite, é uma condição que afeta o sistema vestibular do ouvido interno, responsável pelo equilíbrio e orientação espacial.");
             continua();
-        break;
+            break;
         case 8:
             causas();
             printf("\n \n Uso de medicamentos // Fadiga, dor abdominal, alteração no apetite \n // Consultar médico para ajuste ou troca de medicação. \n");
             printf("\n // O uso de certos medicamentos pode causar dificuldade respiratória como efeito colateral. Isso pode ocorrer por diferentes mecanismos, incluindo reações alérgicas, \n // inflamação pulmonar, fibrose, broncoespasmo ou toxicidade direta nos pulmões.");
             continua();
-        break;
+            break;
         case 9:
             causas();
             printf("\n \n Doenças do fígado ou vesícula // Dor abdominal no quadrante superior direito, icterícia \n // Avaliação médica urgente, exames complementares. \n");
             printf("\n // Doenças do fígado e da vesícula podem ser causadas por diversos fatores, incluindo infecções, inflamações, problemas metabólicos, cálculos biliares e efeitos de medicamentos.");
             continua();
-        break;
+            break;
+        case 0:
+            printf("\nSem registro de naúsea específica.\n");
+            continua();
     default:
             printf("Valor inválido! Tente de 1 a 9 novamente!");
             continua();
