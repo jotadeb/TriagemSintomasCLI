@@ -15,16 +15,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9954dc13-23e1-47c1-9357-e10a595a4d68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Aep.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CHATBOT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CHATBOT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aep.c" beforeDir="false" afterPath="$PROJECT_DIR$/Aep.c" afterDir="false" />
-    </list>
+    <list default="true" id="9954dc13-23e1-47c1-9357-e10a595a4d68" name="Changes" comment="mexendo no projeto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,12 +54,15 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/jotadeb/TriagemSintomasCLI.git&quot;,
-    &quot;accountId&quot;: &quot;61a960a5-1b87-47b3-b82d-e2a9b53d8988&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/jotadeb/TriagemSintomasCLI.git",
+    "accountId": "af661bae-40b5-4426-aabe-4d40ebc95d31"
   }
-}</component>
+}]]></component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="FvGwzyc4" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -86,9 +80,10 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -125,11 +120,25 @@
       <workItem from="1761404441488" duration="3000" />
       <workItem from="1762369773025" duration="118000" />
       <workItem from="1762574208304" duration="3938000" />
+      <workItem from="1765722303012" duration="174000" />
     </task>
+    <task id="LOCAL-00001" summary="mexendo no projeto">
+      <option name="closed" value="true" />
+      <created>1765722406997</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765722406997</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mexendo no projeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="mexendo no projeto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
